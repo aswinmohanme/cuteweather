@@ -4,7 +4,15 @@ import './index.css';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
+import ReactAnimatedWeather from 'react-animated-weather';
 
+
+const defaults = {
+  icon: 'CLEAR_DAY',
+  color: 'goldenrod',
+  size: 60,
+  animate: true
+};
 
 
 
@@ -36,7 +44,7 @@ this.state = {
 render() {
 
   return (
-<div >
+<div>
     <Typography  align="center" variant="overline" gutterBottom   classes={{
     root: 'heading test isgradplain', }
    }>
@@ -44,16 +52,69 @@ render() {
     </Typography>
 <div className="weather">
     <Grid container spacing={24}>
-       <Grid item xs={3}>
+       <Grid item xs={6} >
          <Typography  align="center" variant="overline" gutterBottom   classes={{
          root: 'city test isgradplain', }
         }>
            {this.state.city}
          </Typography>
        </Grid>
+       <Grid item xs={2} >
+
+         <ReactAnimatedWeather
+           icon={defaults.icon}
+           color={defaults.color}
+           size={defaults.size}
+           animate={defaults.animate}
+         />
+
+       </Grid>
+
+       <Grid item xs={2} >
+         <Typography  align="center" variant="overline" gutterBottom   classes={{
+         root: 'city test isgradplain', }
+        }>
+        Its Looking Hot
+      </Typography>
+       </Grid>
+
      </Grid>
    </div>
+
+<div class="row">
+     <Grid container >
+       <Grid item xs={4} >
+         <Typography  align="right" variant="overline" gutterBottom   classes={{
+         root: 'city test isgradplain', }
+        }>
+        Low
+      </Typography>
+       </Grid>
+       <Grid item xs={2} >
+         <Typography  align="left" variant="overline" gutterBottom   classes={{
+         root: 'city test isgradplain', }
+        }>
+        24
+      </Typography>
+       </Grid>
+       <Grid item xs={2} >
+         <Typography  align="right" variant="overline" gutterBottom   classes={{
+         root: 'city test isgradplain', }
+        }>
+        High
+      </Typography>
+       </Grid>
+       <Grid item xs={2}  >
+         <Typography  align="left" variant="overline" gutterBottom   classes={{
+         root: 'city test isgradplain', }
+        }>
+        24
+      </Typography>
+       </Grid>
+
+     </Grid>
 </div>
+   </div>
 )
 }
 
