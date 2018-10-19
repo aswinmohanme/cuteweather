@@ -2,21 +2,33 @@ import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
+
+
+
 
 
 var apiKey = "ae754027ab44ce684e50d36881b26d0f";
 
 class App extends Component {
+constructor(props){
+super(props);
+this.state = {
+  city : "",
+}
+}
 
 
   componentDidMount(){
-    let city = "kochi";
+    var city = "kochi";
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&apiKey=${apiKey}`)
          .then(data => {
            console.log(data.data);
          }
-);
+    );
+    this.setState({city : city});
+
 }
 
 
@@ -24,13 +36,24 @@ class App extends Component {
 render() {
 
   return (
-
+<div >
     <Typography  align="center" variant="overline" gutterBottom   classes={{
-    root: 'classes-state-heading test isgradplain', }
+    root: 'heading test isgradplain', }
    }>
       Cute Weather App
     </Typography>
-
+<div className="weather">
+    <Grid container spacing={24}>
+       <Grid item xs={3}>
+         <Typography  align="center" variant="overline" gutterBottom   classes={{
+         root: 'city test isgradplain', }
+        }>
+           {this.state.city}
+         </Typography>
+       </Grid>
+     </Grid>
+   </div>
+</div>
 )
 }
 

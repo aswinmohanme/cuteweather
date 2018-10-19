@@ -14,10 +14,15 @@ code {
 }
 
 
-.classes-state-heading {
+.heading {
   padding-top: 50px;
   font-size: 25px !important;
 opacity: 0.8;
+}
+
+.city {
+  font-size: 19px !important;
+opacity: 0.7;
 }
 
 .isgradsunny {
@@ -44,4 +49,9 @@ background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, F
 .text {
   font-family: 'Lato', sans-serif;
 
+}
+
+
+.weather{
+  padding-top: 150px;
 }
